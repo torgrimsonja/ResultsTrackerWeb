@@ -15,9 +15,9 @@
  * Editable configuration stuff
  *******************************/
 	$config['Database_Host']		=	"localhost";
-	$config['Database_Name']		=	"local_library";
-	$config['Database_User']		=	"library";
-	$config['Database_Password']	=	"bru8in2s";
+	$config['Database_Name']		=	"atsolin_resultstracker";
+	$config['Database_User']		=	"atsolin_tracker";
+	$config['Database_Password']	=	"results";
 
 /*******************************
 * SYSTEM CONSTANTS

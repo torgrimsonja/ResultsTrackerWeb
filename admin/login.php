@@ -1,11 +1,11 @@
 <?php
 /*****************************************************************
- *	index.php
+ *	DOCUMENT_TEMPLATE.php
  *	------------------------
- *  Created			: April 11, 2013
+ *  Created			: April 6, 2013
  *  Created by:		: Jason Torgrimson, Thor Lund, Bruno Grubisic, Issac Laris, Tristan Neria, Joey Higgins
  *  Copyright		: (c) 2013 
- *	Description		: Index page.
+ *	Description		: (overview of file purpose here)
 ****************************************************************/
    
 /************************************************
@@ -14,11 +14,11 @@
 
 	//Defines the path from this file to the root of the site
 		//Define to path to the root of our site in the quotes.
-		define('ROOT_PATH', '');
+		define('ROOT_PATH', '../');
 		
 	//Defines page title in the title bar and in the header.
 		//Place the title of your project in the quotes.
-		define('TITLE', '');
+		define('TITLE', 'Admin Login Page');
 
 /************************************************
  *	SERCURITY AND INCLUDES
@@ -48,6 +48,10 @@
 				 appropriate file in the INC folder.
  ************************************************/
 
+if(	array_key_exists('username', $_POST) &&
+	array_key_exists('password', $_POST)){
+	$auth->process_login($_POST['username'], $_POST['password']);
+}
 
  
 /************************************************
@@ -57,7 +61,7 @@
 ************************************************/
 	
 	//Establishes the structure for the header container
-		$template->page_header(TITLE);
+		$template->admin_page_header(TITLE);
 		
 
 /************************************************
@@ -65,20 +69,16 @@
  *	description: Section used for all page output
 ************************************************/
 
+
 ?>
 
-	<!-- THE ONLY THINGS YOU NEED TO CHANGE ABOVE ARE THE ROOT_PATH AND TITLE, and navigation method!!! -->
-
-	<!-- ENTER THE CONTENT FOR YOUR PAGE HERE!!! -->
-	
-	<!-- Begin HTML5 content -->
-	<pre>
-    <?php print_r($_SESSION); ?>
-	</pre>
-
-	<!-- End HTML5 content -->
-	
-	<!-- LEAVE EVERYTHING BELOW THIS LINE ALONE!!! -->
+	<form method="post" name="loginForm" id="loginForm">
+    	<label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        <input type="submit" id="submit" value="Submit">
+	</form>
 
 <?php
 
@@ -89,7 +89,7 @@
 ************************************************/
 
 	//Establishes the structure for the banner container
-		$template->page_footer();
+		$template->admin_page_footer();
 
 
 /************************************************

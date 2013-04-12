@@ -204,7 +204,7 @@
 				//Validate that the user is authenticated
 					$this->require_authenticated();
 			}else{
-				header('location:' . $this->root_path . 'admin/');				
+				header('location:' . $this->root_path . 'admin/login.php');				
 				die();
 			}
 		}
@@ -212,7 +212,7 @@
  		public function require_authenticated(){
 
 			if(!isset($_SESSION['AUTHENTICATED']) || $_SESSION['AUTHENTICATED'] != TRUE)	{
-				header('location:' . $this->root_path . 'admin/');		
+				header('location:' . $this->root_path . 'admin/login.php');		
 				exit();		
 			}
 		}
