@@ -2,9 +2,9 @@
 /*****************************************************************
  *	DOCUMENT_TEMPLATE.php
  *	------------------------
- *  Created			: September 6, 2006
- *  Created by:		: Jason Torgrimson
- *  Copyright		: (c) 2006 Twin Falls High School.
+ *  Created			: April 6, 2013
+ *  Created by:		: Jason Torgrimson, Thor Lund, Bruno Grubisic, Issac Laris, Tristan Neria, Joey Higgins
+ *  Copyright		: (c) 2013 
  *	Description		: (overview of file purpose here)
 ****************************************************************/
    

@@ -45,12 +45,12 @@
         <?php	
 	}
 	
-	function addStudentDo($firstName, $lastName){
+	function addStudentDo($firstName, $lastName, $code = '0'){
 		global $db, $data_validation;
 		
 		$sql['firstName'] 	= $data_validation->escape_sql($firstName);
 		$sql['lastName'] 	= $data_validation->escape_sql($lastName);
+		$sql['code'] 		= $data_validation->escape_sql($code);
 		
-		$db->query('INSERT INTO student (firstName, lastName)
-					VALUES (\'' . $sql['firstName'] . '\', \'' . $sql['lastName'] . '\')');
+		$db->query('INSERT INTO student (firstName, lastName, code) VALUES (\''.$sql['firstName'].'\',\''.$sql['lastName'].'\''.$sql['code'].'\');');
 	}

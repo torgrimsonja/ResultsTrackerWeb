@@ -51,6 +51,20 @@
  			array_key_exists('courseId', $_GET) &&
 			is_numeric($_GET['courseId'])){
 	 deleteCourseDo($_GET['courseId']); 
+ }else if(	array_key_exists('action', $_GET) &&
+ 			$_GET['action'] == 'searchStudent' &&
+ 			array_key_exists('value', $_GET) &&
+ 			array_key_exists('courseId', $_GET) &&
+			is_numeric($_GET['courseId'])){
+	 echo searchStudent($_GET['value'], $_GET['courseId']);
+	 exit();
+ }else if(array_key_exists('action', $_GET) &&
+ 			$_GET['action'] == 'enrollStudent' &&
+ 			array_key_exists('studentId', $_GET)&&
+ 			is_numeric($_GET['studentId']) &&
+ 			array_key_exists('courseId', $_GET) &&
+			is_numeric($_GET['courseId'])){
+	 addStudentEnrollment($_GET['studentId'], $_GET['courseId']);
  }
  
 /************************************************
@@ -85,8 +99,15 @@
 		
 		echo createCourse($_SESSION['USER_ID']);
 		
+	}else if(array_key_exists('action', $_GET) &&
+		$_GET['action'] == 'viewCourse' &&
+		array_key_exists('courseId', $_GET) &&
+		is_numeric($_GET['courseId'])){
+		
+		echo viewCourse($_GET['courseId']);
+		
 	}else{
-		echo viewCourses($_SESSION['USER_ID']);
+		echo listCourses($_SESSION['USER_ID']);
 	}
 /************************************************
  *	FOOTER
@@ -102,5 +123,3 @@
  *	END OF DOCUMENT
 ************************************************/
 
-?>
-y

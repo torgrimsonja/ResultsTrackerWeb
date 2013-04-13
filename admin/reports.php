@@ -14,11 +14,11 @@
 
 	//Defines the path from this file to the root of the site
 		//Define to path to the root of our site in the quotes.
-		define('ROOT_PATH', '../');
+		define('ROOT_PATH', '');
 		
 	//Defines page title in the title bar and in the header.
 		//Place the title of your project in the quotes.
-		define('TITLE', 'Student Management');
+		define('TITLE', 'reports');
 
 /************************************************
  *	SERCURITY AND INCLUDES
@@ -26,7 +26,6 @@
 
 	//Includes all classes and variables common to all pages in the site.
 		require_once(ROOT_PATH . 'common.php');
-		require_once('func_students.php');
 
 	//Validate authorized user access to this page
 		$auth->validate_user_access('PUBLIC');
@@ -49,12 +48,7 @@
 				 appropriate file in the INC folder.
  ************************************************/
 
-if(	array_key_exists('action', $_GET) &&
-	$_GET['action'] == 'addStudentDo' &&
-	array_key_exists('firstName', $_POST) &&
-	array_key_exists('lastName', $_POST)){
-	addStudentDo($_POST['firstName'], $_POST['lastName']);
-}
+
  
 /************************************************
  *	HEADER
@@ -63,27 +57,29 @@ if(	array_key_exists('action', $_GET) &&
 ************************************************/
 	
 	//Establishes the structure for the header container
-		$template->admin_page_header(TITLE);
+		$template->page_header(TITLE);
 		
 
 /************************************************
  *	PAGE OUTPUT
  *	description: Section used for all page output
 ************************************************/
-if(	array_key_exists('action', $_GET) &&
-	$_GET['action'] == 'addStudentDo' &&
-	array_key_exists('firstName', $_POST) &&
-	array_key_exists('lastName', $_POST)){
-	addStudentDo($_POST['firstName'], $_POST['lastName']);
-}
 
-if(	array_key_exists('action', $_GET) &&
-			$_GET['action'] == 'addStudentForm'){
-	addStudentForm();
-}else{
-	echo displayStudents();	
-}
+?>
 
+	<!-- THE ONLY THINGS YOU NEED TO CHANGE ABOVE ARE THE ROOT_PATH AND TITLE, and navigation method!!! -->
+
+	<!-- ENTER THE CONTENT FOR YOUR PAGE HERE!!! -->
+	
+	<!-- Begin HTML5 content -->
+
+
+
+	<!-- End HTML5 content -->
+	
+	<!-- LEAVE EVERYTHING BELOW THIS LINE ALONE!!! -->
+
+<?php
 
 /************************************************
  *	FOOTER
@@ -92,7 +88,7 @@ if(	array_key_exists('action', $_GET) &&
 ************************************************/
 
 	//Establishes the structure for the banner container
-		$template->admin_page_footer();
+		$template->page_footer();
 
 
 /************************************************
