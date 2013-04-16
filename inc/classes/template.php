@@ -51,7 +51,7 @@ class page_template {
             <div id="page" data-role="page" data-theme="a">
                 <div id="header" data-role="header" data-position="fixed">
                         <h2 style="color:#FFF;">Welcome to ResultsTracker</h1>
-                        <a href="<?php echo $this->location;?>admin/" data-role="button">Login</a>
+                        <a href="<?php echo $this->location;?>admin/login.php" data-role="button">Login</a>
                 </div>
                     <div data-role="navbar" data-grid="b">
                         <ul>															   <!-- class="ui-btn-active" -->
@@ -125,7 +125,7 @@ class page_template {
 							?>
                                 <div data-role="navbar" data-grid="d">
                                     <ul>															   <!-- class="ui-btn-active" -->
-                                        <li><a href="<?php echo $this->location; ?>admin/schedule/index.php">Home</a></li>
+                                        <li><a href="<?php echo $this->location; ?>admin/index.php">Home</a></li>
                                         <li><a href="<?php echo $this->location; ?>admin/courses.php">Courses</a></li>
                                         <li><a href="<?php echo $this->location; ?>admin/students.php">Students</a></li>
                                         <li><a href="<?php echo $this->location; ?>admin/tasks.php">Tasks</a></li>

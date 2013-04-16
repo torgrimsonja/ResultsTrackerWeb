@@ -5,8 +5,7 @@
 		
 		$db->query('SELECT * FROM student', 'students');
 		
-		$output = '	<a href="?action=addStudentForm">Add User</a>
-					
+		$output = '<div class="content">
 					<table>
 					<tr>
 						<th>Options</th>
@@ -26,7 +25,8 @@
 					</tr>';
 		}
 		
-		$output .= '</table>';
+		$output .= '</table>
+					</div>';
 		
 		return $output;
 	}

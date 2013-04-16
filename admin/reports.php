@@ -57,7 +57,7 @@
 ************************************************/
 	
 	//Establishes the structure for the header container
-		$template->page_header(TITLE);
+		$template->admin_page_header(TITLE);
 		
 
 /************************************************
@@ -88,7 +88,7 @@
 ************************************************/
 
 	//Establishes the structure for the banner container
-		$template->page_footer();
+		$template->admin_page_footer();
 
 
 /************************************************

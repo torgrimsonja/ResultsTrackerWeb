@@ -29,7 +29,7 @@
 		require_once('func_students.php');
 
 	//Validate authorized user access to this page
-		$auth->validate_user_access('PUBLIC');
+		$auth->validate_user_access('AUTH');
 
 /************************************************
  *	DATA HANDLING
@@ -62,14 +62,17 @@ if(	array_key_exists('action', $_GET) &&
  				 container for this page.
 ************************************************/
 	
-	//Establishes the structure for the header container
-		$template->admin_page_header(TITLE);
-		
+//Establishes the structure for the header container
+		$template->admin_page_header(TITLE);		
 
 /************************************************
  *	PAGE OUTPUT
  *	description: Section used for all page output
 ************************************************/
+	echo '	<div data-role="header">
+				<h1>Student Management</h1>
+				<a href="?action=addStudentForm" data-icon="add" class="ui-btn-right">Add</a>
+			</div>';
 if(	array_key_exists('action', $_GET) &&
 	$_GET['action'] == 'addStudentDo' &&
 	array_key_exists('firstName', $_POST) &&
