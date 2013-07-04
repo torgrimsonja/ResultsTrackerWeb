@@ -17,7 +17,7 @@ header('Access-Control-Allow-Origin: *');
 
 	//Defines the path from this file to the root of the site
 		//Define to path to the root of our site in the quotes.
-		define('ROOT_PATH', '');
+		define('ROOT_PATH', '../');
 		
 	//Defines page title in the title bar and in the header.
 		//Place the title of your project in the quotes.
@@ -31,20 +31,15 @@ header('Access-Control-Allow-Origin: *');
 		require_once(ROOT_PATH . 'common.php');
 
 $response = array(
-	'authenticated' => false
+	'deviceID' => 0,
+	'comments' => 'You suck, Joey'
 );
 
-if (array_key_exists('username', $_POST) &&
-	array_key_exists('password', $_POST)) {
+if (array_key_exists('deviceType', $_POST)) {
 	
-	$sql['username'] = $data_validation->escape_sql($_POST['username']);
-	$sql['password'] = $data_validation->escape_sql($_POST['password']);
-	
-	$db->query("SELECT COUNT(*) AS numAccounts FROM `user` WHERE `username`='" . $sql['username'] . "' AND `password`='" . $sql['password'] . "'", 'accounts');
-	$result = $db->fetch_array('accounts');
-	if ($result['numAccounts'] > 0) {
-		$response['authenticated'] = true;	
-	}
+	$sql['deviceType'] = $data_validation->escape_sql($_POST['deviceType']);
+	$db->query("INSERT INTO `device` (`device_type`) VALUES ('" . $sql['deviceType'] . "')");
+	$response['deviceID'] = $db->lastInsertId();
 }
 
 echo json_encode($response);
