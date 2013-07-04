@@ -124,7 +124,7 @@
 			//Destroy session
 				session_destroy();
 			//Redirect user
-				header('location:' . $this->root_path . 'index.php');
+				header('location:/index.php');
 				die();
 		}
 
