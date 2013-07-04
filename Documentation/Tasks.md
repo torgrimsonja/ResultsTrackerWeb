@@ -7,3 +7,5 @@
 	- <del>Does not send unnecessary data.</del> Check!
 	- <del>Does not send raw commands for security reasons.</del> Check!
 4. Begin writing syncing script (see attached image).
+
+![Syncing Image](https://raw.github.com/torgrimsonja/ResultsTrackerWeb/master/Documentation/syncing.JPG)
