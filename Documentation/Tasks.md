@@ -8,4 +8,4 @@
 	- <del>Does not send raw commands for security reasons.</del> Check!
 4. Begin writing syncing script (see attached image).
 
-![Syncing Image](https://raw.github.com/torgrimsonja/ResultsTrackerWeb/master/Documentation/syncing.JPG)
+![Syncing Image](https://raw.github.com/torgrimsonja/ResultsTrackerWeb/master/Documentation/syncing.JPG?login=nathanee32&token=8c5edec426b3737a043d4a2b6892115d)
