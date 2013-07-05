@@ -29,7 +29,7 @@
 		require_once('func_students.php');
 
 	//Validate authorized user access to this page
-		$auth->validate_user_access('PUBLIC');
+		$auth->validate_user_access('AUTH');
 
 /************************************************
  *	DATA HANDLING
@@ -48,12 +48,28 @@
 				 functions must be included in the
 				 appropriate file in the INC folder.
  ************************************************/
-
 if(	array_key_exists('action', $_GET) &&
 	$_GET['action'] == 'addStudentDo' &&
 	array_key_exists('firstName', $_POST) &&
-	array_key_exists('lastName', $_POST)){
+	array_key_exists('lastName', $_POST))
+{
 	addStudentDo($_POST['firstName'], $_POST['lastName']);
+} 
+else if(array_key_exists('action', $_GET) &&
+		$_GET['action'] == 'updateStudentDo' &&
+		array_key_exists('studentId', $_POST) &&
+		is_numeric($_POST['studentId']) &&
+		array_key_exists('firstName', $_POST) &&
+		array_key_exists('lastName', $_POST) &&
+		array_key_exists('code', $_POST)) 
+{
+	updateStudentDo($_POST['studentId'], $_POST['firstName'], $_POST['lastName'], $_POST['code']);
+}
+else if ( array_key_exists('action', $_GET) &&
+    $_GET['action'] == 'deleteStudentDo' && 
+    array_key_exists('id', $_GET)) 
+{
+    deleteStudentDo($_GET['id']);
 }
  
 /************************************************
@@ -62,25 +78,32 @@ if(	array_key_exists('action', $_GET) &&
  				 container for this page.
 ************************************************/
 	
-	//Establishes the structure for the header container
-		$template->admin_page_header(TITLE);
-		
+//Establishes the structure for the header container
+		$template->admin_page_header(TITLE);		
 
 /************************************************
  *	PAGE OUTPUT
  *	description: Section used for all page output
 ************************************************/
-if(	array_key_exists('action', $_GET) &&
-	$_GET['action'] == 'addStudentDo' &&
-	array_key_exists('firstName', $_POST) &&
-	array_key_exists('lastName', $_POST)){
-	addStudentDo($_POST['firstName'], $_POST['lastName']);
-}
+	echo '	<div data-role="header">
+				<h1>Student Management</h1>
+				<a href="?action=addStudentForm" data-icon="add" class="ui-btn-right">Add</a>
+			</div>';
 
 if(	array_key_exists('action', $_GET) &&
-			$_GET['action'] == 'addStudentForm'){
+			$_GET['action'] == 'addStudentForm')
+{
 	addStudentForm();
-}else{
+}
+else if(array_key_exists('action', $_GET) &&
+		$_GET['action'] == 'updateStudent' &&
+		array_key_exists('id', $_GET) &&
+		is_numeric($_GET['id'])) 
+{
+	echo updateStudentForm($_GET['id']);
+}
+else
+{
 	echo displayStudents();	
 }
 

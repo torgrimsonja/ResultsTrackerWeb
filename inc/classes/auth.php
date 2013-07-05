@@ -124,7 +124,7 @@
 			//Destroy session
 				session_destroy();
 			//Redirect user
-				header('location:' . $this->root_path . 'index.php');
+				header('location:/index.php');
 				die();
 		}
 
@@ -243,17 +243,17 @@
 						}			
 					}
 					if(!$hasPrivilege){
-						header('location:' . $this->root_path . 'admin/');		
+						header('location:' . $this->root_path . 'admin/login.php');		
 						exit();		
 					}else{
 						return true;	
 					}
 					
 				}else{
-					header('location:' . $this->root_path . 'admin/');		
+					header('location:' . $this->root_path . 'admin/login.php');		
 					exit();		
 				}
-			header('location:' . $this->root_path . 'admin/');		
+			header('location:' . $this->root_path . 'admin/login.php');		
 			exit();		
 		}
 		
