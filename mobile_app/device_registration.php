@@ -1,5 +1,6 @@
 <?php
 
+//This is just for development testing, and can be removed from production because it's probably some horrible security hole. 
 header('Access-Control-Allow-Origin: *');
 
 /*****************************************************************
