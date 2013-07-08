@@ -32,33 +32,47 @@ header('Access-Control-Allow-Origin: *');
 		require_once(ROOT_PATH . 'common.php');
 
 $response = array(
-	'error' => true,
-	'comments' => 'Ternary is not that clever',
-	'userId' => null
+	'dbError' => false,
+	'usernameOpen' => false,
+	'emailOpen' => false,
+	'userID' => 0
 );
 
-if (array_key_exists('username', $_POST)
-	&& array_key_exists('password', $_POST)
-	&& array_key_exists('email', $_POST)
-	&& array_key_exists('firstName', $_POST)
-	&& array_key_exists('lastName', $_POST)) {
+if (array_key_exists('username', $_POST) 	&&
+	array_key_exists('password', $_POST) 	&&
+	array_key_exists('email', $_POST) 		&& 
+	array_key_exists('firstName', $_POST) 	&& 
+	array_key_exists('lastName', $_POST)) {
 	
-	foreach($_POST as $key => $value) { $sql[$key] = $data_validation->escape_sql($value); } 
-	$db->query("SELECT `id` FROM `user` WHERE `username` = '{$sql['username']}'");
-	if(count($db->fetch_array)>0) { $response['comments'] = 'Username already exists.'; } 
-	else {
-		$db->query("SELECT `id` FROM `user` WHERE `email` = '{$sql['email']}'");
-		if(count($db->fetch_array)>0) { $response['comments'] = 'Email already exists.' }
-		else {
-			$db->query("INSERT INTO `user` (`firstName`, `lastName`, `username`, `password`, `email`) VALUES ('{$sql['firstName']}', '{$sql['lastName']}', '{$sql['username']}', '{$sql['password']}', '{$sql['email']}')");
-			$response['userId'] = $db->lastInsertId();
-			if($response['userId']>0) {
-				$response['error'] = false; 
-				$response['comments'] = 'Created new user '.$sql['username']; 
-			} else $response['comments'] = 'Insertion query failed.'; 
+	foreach($_POST as $key => $value) { 
+		$sql[$key] = $data_validation->escape_sql($value); 
+	} 
+	
+	$result = $db->query("SELECT `id` FROM `user` WHERE `username` = '" . $sql['username'] . "'");
+	if($result) {
+		if ($result->rowCount() == 0) {
+			$response['usernameOpen'] = true;
+			$result = $db->query("SELECT `id` FROM `user` WHERE `email`='" . $sql['email'] . "'");
+			if ($result) {
+				if ($result->rowCount() == 0) {
+					$response['emailOpen'] = true;
+					$result = $db->query("INSERT INTO `user` (`firstName`, `lastName`, `username`, `password`, `email`) VALUES ('" . 
+								$sql['firstName'] . "', '" . $sql['lastName'] . "', '" . $sql['username'] . "', '" . $sql['password'] . 
+								"', '" . $sql['email'] . "')");
+					
+					if ($result) {
+						$response['userID'] = $db->lastInsertId();
+					} else {
+						$response['dbError'] = true;	
+					}
+				}
+			} else {
+				$response['dbError'] = true;
+			}
 		}
+	} else {
+		$response['dbError'] = true;		
 	}
-	
 
 }
 

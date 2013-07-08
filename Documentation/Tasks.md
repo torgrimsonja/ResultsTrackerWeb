@@ -1,13 +1,14 @@
 #Nathan
 
-1. <del>Create script that checks credentials from Mobile application and sends back verification.</del> Done
-2. <del>Create script that assigns unique ID to each device and records device type to DB.</del> Done
-3. <del>Plan out awesome syncing from both sides.</del> Done
-	- <del>Does not slow down as database size increases.</del> Check!
-	- <del>Does not send unnecessary data.</del> Check!
-	- <del>Does not send raw commands for security reasons.</del> Check!
+1. <del>Create script that checks credentials from Mobile application and sends back verification.</del> Done 07-03-13
+2. <del>Create script that assigns unique ID to each device and records device type to DB.</del> Done 07-04-13
+3. <del>Create script that allows user to register account from mobile application.</del> Done 07-08-13
+3. <del>Plan out awesome syncing from both sides.</del> Done 07-05-13
+	- <del>Does not slow down as database size increases.</del> Check! 07-04-13
+	- <del>Does not send unnecessary data.</del> Check! 07-04-13
+	- <del>Does not send raw commands for security reasons.</del> Check! 07-05-13
 4. Begin writing syncing script (see image at bottom of page). 
-	- Started
+	- Started 07-05-13
 5. Display progress data on `reports.php` using [Highcharts JS](http://highcharts.com)
 	- Show all students and click to view reports, maybe?
 6. Create CRUD functions for attempts
