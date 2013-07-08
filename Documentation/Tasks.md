@@ -21,6 +21,7 @@
 	- See image below for finished process
 	- Begin pseudo-writing code before diving right in.
 2. Add device type to registration script.
+3. Eliminate buttons on home page (like reports and progress, only show when logged in)
 
 ![Syncing Image](syncing.JPG?raw=true)
 
@@ -29,6 +30,7 @@
 1. Split registration script into two different scripts.
 2. Finish account_registration script that validates/creates user account
 3. Resolve issue with database queries in account_registration script
+4. Format daily tasks and timesheet information.
 
 
 ##Left To Do
@@ -44,7 +46,6 @@
 	- Started
 6. Are all default tasks in?
 7. Display notice when incorrect login is entered
-8. <del>Eliminate buttons on home page (like reports and progress, only show when logged in)</del> Done
-9. Create friendly homepage.
-14. Make logging out redirect to home page.
+8. Create friendly homepage.
+9. Make logging out redirect to home page.
  
