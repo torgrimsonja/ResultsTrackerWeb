@@ -60,13 +60,6 @@ class page_template {
 
 						?>
                 </div>
-                    <div data-role="navbar" data-grid="b">
-                        <ul>															   <!-- class="ui-btn-active" -->
-                            <li><a href="<?php echo $this->location; ?>index.php">Home</a></li>
-                            <li><a href="<?php echo $this->location; ?>reports.php">Reports</a></li>
-                            <li><a href="<?php echo $this->location; ?>progress.php">Progress</a></li>
-                        </ul>
-                    </div><!-- /navbar -->
 				<div style="margin: 2em;" class="content">
 	<?php
 	}

@@ -19,7 +19,7 @@
 	- Started
 10. Are all default tasks in?
 11. Display notice when incorrect login is entered
-12. Eliminate buttons on home page (like reports and progress, only show when logged in)
+12. <del>Eliminate buttons on home page (like reports and progress, only show when logged in)</del> Done
 13. Create friendly homepage.
 14. Make logging out redirect to home page.
  

@@ -107,7 +107,7 @@
 							die();
 							
 					} else {
-						header('location:index.php?message=Your user credentials could not be verified.  Please try again.');
+						//header('Location:index.php?message=Your user credentials could not be verified.  Please try again.');
 						exit();
 					}
 			}else{
