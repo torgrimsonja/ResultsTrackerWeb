@@ -52,14 +52,17 @@ if (array_key_exists('username', $_POST) 	&&
 	$result = mysql_query("SELECT `id` FROM `user` WHERE `username` = '" . $sql['username'] . "'");
 	if($result) {
 		if (mysql_num_rows($result) == 0) {
+			
 			$response['usernameOpen'] = true;
 			$result = mysql_query("SELECT `id` FROM `user` WHERE `email`='" . $sql['email'] . "'");
 			if ($result) {
 				if (mysql_num_rows($result) == 0) {
+					
 					$response['emailOpen'] = true;
 					$result = mysql_query("INSERT INTO `user` (`firstName`, `lastName`, `username`, `password`, `email`) VALUES ('" . 
 								$sql['firstName'] . "', '" . $sql['lastName'] . "', '" . $sql['username'] . "', '" . $sql['password'] . 
 								"', '" . $sql['email'] . "')");
+					
 					if ($result) {
 						$response['userID'] = mysql_insert_id();
 					} else {

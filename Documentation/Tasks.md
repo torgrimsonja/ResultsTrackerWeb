@@ -12,7 +12,7 @@
 2. Plan out database structure for unique ID's and device ID's
 3. Begin planning syncing function so that...
 	- it does not slow down as database size increases.
-	- it does not send unnecessary data (that exists both on server and locally)
+	- it does not send unnecessary data (that which exists both on server and locally)
 	- it does not send raw commands for security reasons.
 
 ##July 5th, 2013
@@ -31,7 +31,10 @@
 2. Finish account_registration script that validates/creates user account
 3. Resolve issue with database queries in account_registration script
 4. Format daily tasks and timesheet information.
-
+5. Research correct method of retrieving friendly device info (ex: iPhone5 iOS 6.1.3)
+6. Implement device method in mobile application (really: bug Joey until he does it for me)
+7. Continue working on pseudo-code for syncing script (not pushed yet)
+8. Provide consultation for navigation (at $40 an hour, of course)
 
 ##Left To Do
 
