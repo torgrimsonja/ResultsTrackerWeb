@@ -44,26 +44,26 @@ if (array_key_exists('username', $_POST) 	&&
 	array_key_exists('firstName', $_POST) 	&& 
 	array_key_exists('lastName', $_POST)) {
 	
+	
 	foreach($_POST as $key => $value) { 
 		$sql[$key] = $data_validation->escape_sql($value); 
 	} 
-	
-	$result = $db->query("SELECT `id` FROM `user` WHERE `username` = '" . $sql['username'] . "'");
+	 
+	$result = mysql_query("SELECT `id` FROM `user` WHERE `username` = '" . $sql['username'] . "'");
 	if($result) {
-		if ($result->rowCount() == 0) {
+		if (mysql_num_rows($result) == 0) {
 			$response['usernameOpen'] = true;
-			$result = $db->query("SELECT `id` FROM `user` WHERE `email`='" . $sql['email'] . "'");
+			$result = mysql_query("SELECT `id` FROM `user` WHERE `email`='" . $sql['email'] . "'");
 			if ($result) {
-				if ($result->rowCount() == 0) {
+				if (mysql_num_rows($result) == 0) {
 					$response['emailOpen'] = true;
-					$result = $db->query("INSERT INTO `user` (`firstName`, `lastName`, `username`, `password`, `email`) VALUES ('" . 
+					$result = mysql_query("INSERT INTO `user` (`firstName`, `lastName`, `username`, `password`, `email`) VALUES ('" . 
 								$sql['firstName'] . "', '" . $sql['lastName'] . "', '" . $sql['username'] . "', '" . $sql['password'] . 
 								"', '" . $sql['email'] . "')");
-					
 					if ($result) {
-						$response['userID'] = $db->lastInsertId();
+						$response['userID'] = mysql_insert_id();
 					} else {
-						$response['dbError'] = true;	
+						$response['dbError'] = true;
 					}
 				}
 			} else {
