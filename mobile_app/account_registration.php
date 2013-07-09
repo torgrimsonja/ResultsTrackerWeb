@@ -42,7 +42,8 @@ if (array_key_exists('username', $_POST) 	&&
 	array_key_exists('password', $_POST) 	&&
 	array_key_exists('email', $_POST) 		&& 
 	array_key_exists('firstName', $_POST) 	&& 
-	array_key_exists('lastName', $_POST)) {
+	array_key_exists('lastName', $_POST)	&&
+	array_key_exists('deviceID', $_POST)) {
 	
 	
 	foreach($_POST as $key => $value) { 
@@ -65,6 +66,7 @@ if (array_key_exists('username', $_POST) 	&&
 					
 					if ($result) {
 						$response['userID'] = mysql_insert_id();
+						$result = mysql_query("UPDATE `device` SET `account_id`='" . $sql['userID'] . "' WHERE `id`='" . $sql['deviceID'] + "'");
 					} else {
 						$response['dbError'] = true;
 					}

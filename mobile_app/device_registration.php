@@ -32,15 +32,14 @@ header('Access-Control-Allow-Origin: *');
 		require_once(ROOT_PATH . 'common.php');
 
 $response = array(
-	'deviceID' => 0,
-	'comments' => 'You suck, Joey'
+	'deviceID' => 0
 );
 
 if (array_key_exists('deviceType', $_POST)) {
-	
 	$sql['deviceType'] = $data_validation->escape_sql($_POST['deviceType']);
-	$db->query("INSERT INTO `device` (`device_type`) VALUES ('" . $sql['deviceType'] . "')");
-	$response['deviceID'] = $db->lastInsertId();
+	
+	$result = mysql_query("INSERT INTO `device` (`device_type`) VALUES ('" . $sql['deviceType'] . "')");
+	$response['deviceID'] = mysql_insert_id();
 }
 
 echo json_encode($response);
