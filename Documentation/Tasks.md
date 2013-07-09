@@ -41,6 +41,11 @@
 1. Updated `account_registration` script to update `device` table with assigned `account_id`
 2. Fixed Web Login script (request, error message, and redirect)
 3. Get PhoneGap SQLite plugin working on mobile application
+4. Get Java to work on my machine
+5. Install Android Studio and configure for Results Tracker (Started)
+6. Debug `device_registration` script working with jQuery Mobile application
+7. Remotely debug POST requests to device registration.
+8. Work on local persistence of logging in
 
 ##Left To Do
 
@@ -54,6 +59,5 @@
 5. Create CRUD for Task Management (will we allow modification of tasks)? 
 	- Started
 6. Are all default tasks in?
-8. Create friendly homepage.
-9. Make logging out redirect to home page.
+7. Create friendly homepage.
  

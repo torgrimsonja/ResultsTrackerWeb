@@ -123,7 +123,7 @@
 			//Destroy session
 				session_destroy();
 			//Redirect user
-				header('location:/index.php');
+				header('location:' . $this->root_path);
 				die();
 		}
 

@@ -7,7 +7,7 @@ header('Access-Control-Allow-Origin: *');
  *	account_registration.php
  *	------------------------
  *  Created			: April 11, 2013
- *  Created by:		: Jason Torgrimson, Thor Lund, Bruno Grubisic, Issac Laris, Tristan Neria, Joey Higgins
+ *  Created by:		: Jason Torgrimson, Thor Lund, Bruno Grubisic, Issac Laris, Tristan Neria, Joey Higgins, and Nathan Eliason
  *  Copyright		: (c) 2013 
  *	Description		: Index page.
 ****************************************************************/

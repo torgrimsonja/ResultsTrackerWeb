@@ -3,7 +3,7 @@
  *	DOCUMENT_TEMPLATE.php
  *	------------------------
  *  Created			: April 6, 2013
- *  Created by:		: Jason Torgrimson, Thor Lund, Bruno Grubisic, Issac Laris, Tristan Neria, Joey Higgins
+ *  Created by:		: Jason Torgrimson, Thor Lund, Bruno Grubisic, Issac Laris, Tristan Neria, Joey Higgins, and Nathan Eliason
  *  Copyright		: (c) 2013 
  *	Description		: (overview of file purpose here)
 ****************************************************************/
