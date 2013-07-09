@@ -50,7 +50,7 @@
 
 if(	array_key_exists('username', $_POST) &&
 	array_key_exists('password', $_POST)){
-	$auth->process_login($_POST['username'], $_POST['password']);
+	$auth->process_login($_POST['username'], $_POST['password'], 'admin/courses.php');
 }
 
  
@@ -69,13 +69,17 @@ if(	array_key_exists('username', $_POST) &&
  *	description: Section used for all page output
 ************************************************/
 
-
+if (array_key_exists('retry', $_GET)) {
+	?>
+	<div style="display: block; text-align: center;">Your credentials could not be verified. Please try again.</div>
+	<?php	
+}
 ?>
 
 	<form method="post" name="loginForm" id="loginForm">
-    	<label for="username">Username:</label>
+    	<label for="username">Username :</label>
         <input type="text" name="username" id="username" />
-        <label for="password">Password:</label>
+        <label for="password">Password :</label>
         <input type="password" name="password" id="password" />
         <input type="submit" id="submit" value="Submit">
 	</form>

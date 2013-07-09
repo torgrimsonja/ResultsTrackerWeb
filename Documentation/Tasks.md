@@ -29,12 +29,18 @@
 
 1. Split registration script into two different scripts.
 2. Finish account_registration script that validates/creates user account
-3. Resolve issue with database queries in account_registration script
+3. Resolve issue with database queries in `account_registration` script
 4. Format daily tasks and timesheet information.
 5. Research correct method of retrieving friendly device info (ex: iPhone5 iOS 6.1.3)
 6. Implement device method in mobile application (really: bug Joey until he does it for me)
 7. Continue working on pseudo-code for syncing script (not pushed yet)
 8. Provide consultation for navigation (at $40 an hour, of course)
+
+##July 9th, 2013
+
+1. Updated `account_registration` script to update `device` table with assigned `account_id`
+2. Fixed Web Login script (request, error message, and redirect)
+3. Get PhoneGap SQLite plugin working on mobile application
 
 ##Left To Do
 
@@ -48,7 +54,6 @@
 5. Create CRUD for Task Management (will we allow modification of tasks)? 
 	- Started
 6. Are all default tasks in?
-7. Display notice when incorrect login is entered
 8. Create friendly homepage.
 9. Make logging out redirect to home page.
  

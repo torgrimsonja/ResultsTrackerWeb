@@ -52,7 +52,6 @@
 					$sql['password'] 	= md5($password);
 					$html['redirect'] 	= $this->data_validation->escape_html($redirect);
 
-
 				//Query database for user information
 					$this->db->query('SELECT * FROM `user` 
 										WHERE `username` = \'' . $sql['username'] . '\' 
@@ -95,11 +94,11 @@
 									}
 							}
 
-
 						//END SETTING PRIVILEGES FOR USER
 							
 						//Redirect user
 							if($html['redirect']){
+								//THIS IS WHERE IT'S GOING
 								header('location:' . $this->root_path . $html['redirect']);
 							}else{
 								header('location:' . $this->root_path . 'admin/');
@@ -107,7 +106,7 @@
 							die();
 							
 					} else {
-						//header('Location:index.php?message=Your user credentials could not be verified.  Please try again.');
+						header('location:' . $this->root_path . 'admin/login.php?retry');
 						exit();
 					}
 			}else{
