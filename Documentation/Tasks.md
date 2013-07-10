@@ -46,6 +46,14 @@
 6. Debug `device_registration` script working with jQuery Mobile application
 7. Remotely debug POST requests to device registration.
 8. Work on local persistence of logging in
+9. Work on crUD of courses
+
+##July 10th, 2013 - Todo
+
+1. Get logout script working correctly (redirect doesn't work right.
+2. Get the app running locally on Android Studio
+3. Finish course crUD
+	- on this page: `courses.php?action=viewCourse`.
 
 ##Left To Do
 
@@ -54,8 +62,6 @@
 2. Create CRUD functions for attempts
 3. Create CRUD functions for accounts
 	- We want this to happen on mobile, right?
-4. Create UD (C & R are done) functions for courses 
-	- probably on this page: `courses.php?action=viewCourse`.
 5. Create CRUD for Task Management (will we allow modification of tasks)? 
 	- Started
 6. Are all default tasks in?
