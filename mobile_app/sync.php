@@ -31,21 +31,23 @@ header('Access-Control-Allow-Origin: *');
 		require_once(ROOT_PATH . 'common.php');
 
 $response = array(
-	
+	'credentialsCorrect' => false
 );
 
 if (array_key_exists('changes', $_POST) &&
 	array_key_exists('last_sync', $_POST) &&
 	array_key_exists('username', $_POST) &&
-	array_key_exists('password', $_POST)) {
+	array_key_exists('password', $_POST) &&
+	array_key_exists('timestamp', $_POST)) {
 	
-	$sql['username'] = $data_validation->escape_sql($_POST['username']);
-	$sql['password'] = $data_validation->escape_sql($_POST['password']);
+	foreach($_POST as $key => $value) { 
+		$sql[$key] = $data_validation->escape_sql($value); 
+	} 
 	
-	$db->query("SELECT COUNT(*) AS numAccounts FROM `user` WHERE `username`='" . $sql['username'] . "' AND `password`='" . $sql['password'] . "'", 'accounts');
-	$result = $db->fetch_array('accounts');
-	if ($result['numAccounts'] > 0) {
-		$response['authenticated'] = true;	
+	$result = mysql_query("SELECT Count(*) FROM `user` WHERE `username`='" . $sql['username'] . "' AND `password`='" . $sql['password'] . "'");
+	if ($result && mysql_num_rows($result) > 0) {
+		$response['credentialsCorrect'] = true;	
+		
 	}
 }
 
