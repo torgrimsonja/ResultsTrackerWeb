@@ -31,7 +31,8 @@ header('Access-Control-Allow-Origin: *');
 		require_once(ROOT_PATH . 'common.php');
 
 $response = array(
-	'credentialsCorrect' => false
+	'credentialsCorrect' => false,
+	'changes' => ''
 );
 
 if (array_key_exists('changes', $_POST) &&
@@ -47,6 +48,20 @@ if (array_key_exists('changes', $_POST) &&
 	$result = mysql_query("SELECT Count(*) FROM `user` WHERE `username`='" . $sql['username'] . "' AND `password`='" . $sql['password'] . "'");
 	if ($result && mysql_num_rows($result) > 0) {
 		$response['credentialsCorrect'] = true;	
+		$changes = array();
+		$tables = array('task', 'student', 'course', 'course_student', 'course_student_task_attempt', 'course_task');
+		foreach($tables as $curTable) {
+			$result = mysql_query("SELECT * FROM `" . $curTable . "` WHERE `timestamp` > " . $sql['last_sync']);
+			if ($result) {
+				$changes[$curTable] = array();
+				while ($row = mysql_fetch_assoc($result)) {
+					array_push($changes[$curTable], $row);
+				}
+			} else {
+				echo ' oops: ' . $curTable;	
+			}
+		}
+		$response['changes'] = $changes;
 		
 	}
 }
