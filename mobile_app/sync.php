@@ -49,7 +49,7 @@ if (array_key_exists('changes', $_POST) &&
 	if ($result && mysql_num_rows($result) > 0) {
 		$response['credentialsCorrect'] = true;	
 		$changes = array();
-		$tables = array('task', 'student', 'course', 'course_student', 'course_student_task_attempt', 'course_task');
+		$tables = array('task', 'task_type', 'student', 'course', 'course_student', 'course_student_task_attempt', 'course_task');
 		foreach($tables as $curTable) {
 			$result = mysql_query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" . $curTable . "' ORDER BY ORDINAL_POSITION");
 

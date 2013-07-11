@@ -54,10 +54,20 @@
 2. Set up sync button and begin testing POST requests for syncing
 3. Work on crUD of courses
 
-##July 11th, 2013 - Todo
+##July 11th, 2013
+
+1. Put button in Results Tracker Mobile and send POST request
+2. Exchange repetitive local code for creating tables with dynamically generated code
+3. Get sync to push changes from syncing to local (local db isn't quite set up yet)
+4. Create 'dummy row' with instructions to create table
+5. Have first sync loop through dummy rows and create table
+6. Debug syncing script (It works now!!!)
+7. Applaud.
+
+
+
 
 1. Get logout script working correctly (redirect doesn't work right.
-2. Begin testing syncing function!!
 3. Finish course crUD
 	- on this page: `courses.php?action=viewCourse`.
 
