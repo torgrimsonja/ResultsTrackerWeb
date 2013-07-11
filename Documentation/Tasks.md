@@ -46,12 +46,18 @@
 6. Debug `device_registration` script working with jQuery Mobile application
 7. Remotely debug POST requests to device registration.
 8. Work on local persistence of logging in
-9. Work on crUD of courses
 
-##July 10th, 2013 - Todo
+
+##July 10th, 2013
+
+1. Finish setting up environment and get Results Tracker running locally
+2. Set up sync button and begin testing POST requests for syncing
+3. Work on crUD of courses
+
+##July 11th, 2013 - Todo
 
 1. Get logout script working correctly (redirect doesn't work right.
-2. Get the app running locally on Android Studio
+2. Begin testing syncing function!!
 3. Finish course crUD
 	- on this page: `courses.php?action=viewCourse`.
 
