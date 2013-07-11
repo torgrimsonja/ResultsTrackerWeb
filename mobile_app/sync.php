@@ -51,15 +51,25 @@ if (array_key_exists('changes', $_POST) &&
 		$changes = array();
 		$tables = array('task', 'student', 'course', 'course_student', 'course_student_task_attempt', 'course_task');
 		foreach($tables as $curTable) {
-			$result = mysql_query("SELECT * FROM `" . $curTable . "` WHERE `timestamp` > " . $sql['last_sync']);
+			$result = mysql_query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" . $curTable . "' ORDER BY ORDINAL_POSITION");
+
 			if ($result) {
 				$changes[$curTable] = array();
+				$dummyRow = array();
 				while ($row = mysql_fetch_assoc($result)) {
-					array_push($changes[$curTable], $row);
+					array_push($dummyRow, $row['COLUMN_NAME']);
 				}
-			} else {
-				echo ' oops: ' . $curTable;	
+				array_push($changes[$curTable], $dummyRow);
+				$result = mysql_query("SELECT * FROM `" . $curTable . "` WHERE `timestamp` > " . $sql['last_sync']);
+				if ($result) {
+	
+					while ($row = mysql_fetch_assoc($result)) {
+						array_push($changes[$curTable], $row);
+					}
+				}
 			}
+			
+
 		}
 		$response['changes'] = $changes;
 		
