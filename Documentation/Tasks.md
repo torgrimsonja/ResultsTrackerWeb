@@ -63,6 +63,9 @@
 5. Have first sync loop through dummy rows and create table
 6. Debug syncing script (It works now!!!)
 7. Applaud.
+8. Research how to find out if user is PhoneGap before it's ready
+9. Implement method (remove timeout for browsers)
+10. Clean up startup functions
 
 
 
